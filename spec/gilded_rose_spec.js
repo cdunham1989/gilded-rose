@@ -105,7 +105,9 @@ describe("Gilded Rose", function() {
       });
 
       xit("should not have a quality more than 50", function() {
-
+        gildedRose.updateQuality();
+        expect(gildedRose.items[4].sellIn).toEqual(4);
+        expect(gildedRose.items[4].quality).toEqual(50);
       });
     });
   });
