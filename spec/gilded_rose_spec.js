@@ -14,7 +14,7 @@ describe("Gilded Rose", function() {
   });
 
   describe("Updating Item values", function() {
-    it("changes the sellIn and quality values on a normal item after a day has passed", function() {
+    it("alters the sellIn and quality values on a normal item after a day has passed", function() {
       gildedRose.updateQuality();
       expect(gildedRose.items[0].sellIn).toEqual(9);
       expect(gildedRose.items[0].quality).toEqual(9);
@@ -26,18 +26,36 @@ describe("Gilded Rose", function() {
       expect(gildedRose.items[1].quality).toEqual(9);
     });
 
-    it("alters the sellIn and quality values of Backstage passes as expected when more than 10 days until sellIn", function() {
-      gildedRose.updateQuality();
-      expect(gildedRose.items[2].sellIn).toEqual(10);
-      expect(gildedRose.items[2].quality).toEqual(21);
-    });
-
-    it("alters the sellIn and quality values of Backstage passes as expected when less than 10 days until sellIn", function() {
-      for(var i = 0; i < 2; i++) {
+    describe("Backstage Passes", function() {
+      it("alters the sellIn and quality values of Backstage passes as expected when more than 10 days until sellIn", function() {
         gildedRose.updateQuality();
-      }
-      expect(gildedRose.items[2].sellIn).toEqual(9);
-      expect(gildedRose.items[2].quality).toEqual(23);
+        expect(gildedRose.items[2].sellIn).toEqual(10);
+        expect(gildedRose.items[2].quality).toEqual(21);
+      });
+
+      it("alters the sellIn and quality values of Backstage passes as expected when less than 10 days until sellIn", function() {
+        for(var i = 0; i < 2; i++) {
+          gildedRose.updateQuality();
+        }
+        expect(gildedRose.items[2].sellIn).toEqual(9);
+        expect(gildedRose.items[2].quality).toEqual(23);
+      });
+
+      it("alters the sellIn and quality values of Backstage passes as expected when less than 5 days until sellIn", function() {
+        for(var i = 0; i < 6; i++) {
+          gildedRose.updateQuality();
+        }
+        expect(gildedRose.items[2].sellIn).toEqual(5);
+        expect(gildedRose.items[2].quality).toEqual(31);
+      });
+
+      it("alters the sellIn and quality values of Backstage passes as expected when sellIn reaches 0", function() {
+        for(var i = 0; i < 12; i++) {
+          gildedRose.updateQuality();
+        }
+        expect(gildedRose.items[2].sellIn).toEqual(-1);
+        expect(gildedRose.items[2].quality).toEqual(0);
+      });
     });
   });
 });
