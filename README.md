@@ -35,8 +35,6 @@ Currently the value of Aged Brie continues to increase after its sellIn date, bu
 
 It is stated in the outline that the quality of an item is never more than 50, but the quality of Sulfuras is set at 80.
 
-
-
 ## Running the app locally
 
 * Clone the repository.
