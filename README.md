@@ -27,11 +27,15 @@ Practice good design, refactor the code in such a way that adding the new "conju
 
 My initial process was to look at the code and figure out what all of it was doing, which bits I could alter and which bits I should leave the same. To see how it was all working I altered the number of days the shop had been open within the TexttestFixture.html file. This gave me a bigger picture of what was happening with values of items within the shop.
 
-For my next step I set out to look at the first failing test and make this pass. Once I had done this I decided to write as many tests as possible to cover as many different avenues through the system an item could have.
+For my next step I set out to look at the first failing test and make this pass. Once I had done this I decided to write as many tests as possible to cover as many different avenues through the system an item could have. Once I had finished writing as many tests as I could for the overall functionality I broke out into a separate Item spec. This was to ensure the constructor worked as planned for now but also to ensure that none of the refactoring or extra functionality I add in will cause this to break.
+
+I also included two pending tests in my code at this point which handle the two issues (see below). As I am not yet altering functionality of the system I have decided to leave these pending and look at them further once I have finished refactoring.
+
+Now I have finished testing the systems functionality I will begin to refactor the code.
 
 ## Issues
 
-Currently the value of Aged Brie continues to increase after its sellIn date, but also the rate at which it increases is 2 per day.
+Currently the value of Aged Brie continues to increase after its sellIn date, but also the rate at which it increases is 2 per day. I am currently unsure if this is the intended functionality or not.
 
 It is stated in the outline that the quality of an item is never more than 50, but the quality of Sulfuras is set at 80.
 
