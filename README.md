@@ -29,6 +29,14 @@ My initial process was to look at the code and figure out what all of it was doi
 
 For my next step I set out to look at the first failing test and make this pass. Once I had done this I decided to write as many tests as possible to cover as many different avenues through the system an item could have.
 
+## Issues
+
+Currently the value of Aged Brie continues to increase after its sellIn date, but also the rate at which it increases is 2 per day.
+
+It is stated in the outline that the quality of an item is never more than 50, but the quality of Sulfuras is set at 80.
+
+
+
 ## Running the app locally
 
 * Clone the repository.
