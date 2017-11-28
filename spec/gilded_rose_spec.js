@@ -6,7 +6,8 @@ describe("Gilded Rose", function() {
                             new Item("Aged Brie", 10, 49),
                             new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20),
                             new Item("Sword", 9, 2),
-                            new Item("Sulfuras, Hand of Ragnaros", 4, 80)]);
+                            new Item("Sulfuras, Hand of Ragnaros", 4, 80),
+                            new Item("Shield", 2, 30)]);
   });
 
   describe("Creating Items", function() {
@@ -37,6 +38,14 @@ describe("Gilded Rose", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[0].sellIn).toEqual(9);
         expect(gildedRose.items[0].quality).toEqual(9);
+      });
+
+      it("adoubles the reduction in quality value after sellIn has passed", function() {
+        for(var i = 0; i < 6; i++) {
+          gildedRose.updateQuality();
+        }
+        expect(gildedRose.items[5].sellIn).toEqual(-4);
+        expect(gildedRose.items[5].quality).toEqual(20);
       });
     });
 
