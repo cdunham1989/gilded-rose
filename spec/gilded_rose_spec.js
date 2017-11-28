@@ -3,8 +3,9 @@ describe("Gilded Rose", function() {
 
   beforeEach(function() {
     gildedRose = new Shop([ new Item("foo", 10, 10),
-                            new Item("Aged Brie", 2, 8),
-                            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)]);
+                            new Item("Aged Brie", 10, 49),
+                            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20),
+                            new Item("Sword", 9, 2)]);
   });
 
   describe("Creating Items", function() {
@@ -20,10 +21,28 @@ describe("Gilded Rose", function() {
       expect(gildedRose.items[0].quality).toEqual(9);
     });
 
-    it("alters the sellIn and quality values of Aged Brie as expected", function() {
-      gildedRose.updateQuality();
-      expect(gildedRose.items[1].sellIn).toEqual(1);
-      expect(gildedRose.items[1].quality).toEqual(9);
+    it("never allows item quality to go above 50", function() {
+      for(var i = 0; i < 2; i++) {
+        gildedRose.updateQuality();
+      }
+      expect(gildedRose.items[1].sellIn).toEqual(8);
+      expect(gildedRose.items[1].quality).toEqual(50);
+    });
+
+    it("never allows item quality to go below 0", function() {
+      for(var i = 0; i < 4; i++) {
+        gildedRose.updateQuality();
+      }
+      expect(gildedRose.items[3].sellIn).toEqual(5);
+      expect(gildedRose.items[3].quality).toEqual(0);
+    });
+
+    describe("Aged Brie", function() {
+      it("alters the sellIn and quality values of Aged Brie as expected", function() {
+        gildedRose.updateQuality();
+        expect(gildedRose.items[1].sellIn).toEqual(9);
+        expect(gildedRose.items[1].quality).toEqual(50);
+      });
     });
 
     describe("Backstage Passes", function() {
