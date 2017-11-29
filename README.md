@@ -29,15 +29,15 @@ My initial process was to look at the code and figure out what all of it was doi
 
 For my next step I set out to look at the first failing test and make this pass. Once I had done this I decided to write as many tests as possible to cover as many different avenues through the system an item could have. Once I had finished writing as many tests as I could for the overall functionality I broke out into a separate Item spec. This was to ensure the constructor worked as planned for now but also to ensure that none of the refactoring or extra functionality I add in will cause this to break.
 
-I also included two pending tests in my code at this point which handle the two issues (see below). As I am not yet altering functionality of the system I have decided to leave these pending and look at them further once I have finished refactoring.
+I originally included two pending tests in my code to handle the two issues I found (see below). In the end I decided to leave the functionality as is and to test how it works now so as not to alter the functionality through refactoring.
 
 Now I have finished testing the systems functionality I will begin to refactor the code.
 
 ## Issues
 
-Currently the value of Aged Brie continues to increase after its sellIn date, but also the rate at which it increases is 2 per day. I am currently unsure if this is the intended functionality or not.
+Currently the value of Aged Brie continues to increase after its sellIn date, but also the rate at which it increases is 2 per day. I am unsure if this is the intended functionality or not but I will leave this functionality as it is and have tested it to make sure my refactoring does not affect it working as it does now.
 
-It is stated in the outline that the quality of an item is never more than 50, but the quality of Sulfuras is set at 80.
+It is stated in the outline that the quality of an item is never more than 50, but the quality of Sulfuras is set at 80. I have not altered this but wanted to highlight it as a potential error in the system.
 
 ## Running the app locally
 
