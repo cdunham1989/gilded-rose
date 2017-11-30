@@ -31,7 +31,13 @@ For my next step I set out to look at the first failing test and make this pass.
 
 I originally included two pending tests in my code to handle the two issues I found (see below). In the end I decided to leave the functionality as is and to test how it works now so as not to alter the functionality through refactoring.
 
-Now I have finished testing the systems functionality I will begin to refactor the code.
+Now I have finished testing the systems functionality I will begin to refactor the code. I started by commenting out the code as it was and started by adding in a simple function that would divide out the items based on name. Standard items then ran through their own method to deal with their sellIn and quality values and the other items were directed to their individual methods too.
+
+I then built up each method individually, one at a time, thinking about the edge cases and potential varieties of values for each item. This allowed me to rebuild the code so that it could be easily adapted and scaled out further but retaining all core functionality too.
+
+After I had completed this for each of the preexisting items I moved on to adding in the new functionality. I wrote test to ensure the functionality of these items was as expected and ensured that edge cases still passed these tests too.
+
+I would like to begin to refactor the code further if I have time at some point in the future. There are no longer any nested if statements but there are a lot of paths through the system too. With this in mind I think there will be ways to refactor this code further and make it even easier to follow.
 
 ## Issues
 
