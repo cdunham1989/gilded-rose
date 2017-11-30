@@ -99,7 +99,7 @@ describe("Gilded Rose", function() {
     });
 
     describe("Sulfuras", function() {
-      xit("neither the sellIn nor quality values change", function() {
+      it("neither the sellIn nor quality values change", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[4].sellIn).toEqual(4);
         expect(gildedRose.items[4].quality).toEqual(80);
