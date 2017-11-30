@@ -85,6 +85,9 @@ conjuredItemHandler(item) {
     } else if (item.sellIn <= 0 && item.quality > 3) {
       item.quality -= 4;
       item.sellIn--;
+    } else if (item.sellIn < 0 && item.quality < 4 && item.quality > 0) {
+      item.quality -= item.quality;
+      item.sellIn--;
     }
   }
 }
