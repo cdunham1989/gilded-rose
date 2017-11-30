@@ -7,7 +7,8 @@ describe("Gilded Rose", function() {
                             new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20),
                             new Item("Sword", 9, 2),
                             new Item("Sulfuras, Hand of Ragnaros", 4, 80),
-                            new Item("Shield", 2, 30)]);
+                            new Item("Shield", 2, 30),
+                            new Item("Aged Brie", 2, 10)]);
   });
 
   describe("Creating Items", function() {
@@ -40,7 +41,7 @@ describe("Gilded Rose", function() {
         expect(gildedRose.items[0].quality).toEqual(9);
       });
 
-      it("adoubles the reduction in quality value after sellIn has passed", function() {
+      it("doubles the reduction in quality value after sellIn has passed", function() {
         for(var i = 0; i < 6; i++) {
           gildedRose.updateQuality();
         }
@@ -56,12 +57,12 @@ describe("Gilded Rose", function() {
         expect(gildedRose.items[1].quality).toEqual(50);
       });
 
-      xit("alters the sellIn and quality values of Aged Brie as expected when sellIn reaches 0", function() {
-        for(var i = 0; i < 11; i++) {
+      it("alters the sellIn and quality values of Aged Brie as expected when sellIn reaches 0", function() {
+        for(var i = 0; i < 12; i++) {
           gildedRose.updateQuality();
         }
-        expect(gildedRose.items[1].sellIn).toEqual(-1);
-        expect(gildedRose.items[1].quality).toEqual(0);
+        expect(gildedRose.items[6].sellIn).toEqual(-10);
+        expect(gildedRose.items[6].quality).toEqual(32);
       });
     });
 
@@ -102,12 +103,6 @@ describe("Gilded Rose", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[4].sellIn).toEqual(4);
         expect(gildedRose.items[4].quality).toEqual(80);
-      });
-
-      xit("should not have a quality more than 50", function() {
-        gildedRose.updateQuality();
-        expect(gildedRose.items[4].sellIn).toEqual(4);
-        expect(gildedRose.items[4].quality).toEqual(50);
       });
     });
   });
