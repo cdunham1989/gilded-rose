@@ -18,7 +18,7 @@ describe("Gilded Rose", function() {
   });
 
   describe("Updating Item values", function() {
-    xit("never allows item quality to go above 50", function() {
+    it("never allows item quality to go above 50", function() {
       for(var i = 0; i < 2; i++) {
         gildedRose.updateQuality();
       }
@@ -26,7 +26,7 @@ describe("Gilded Rose", function() {
       expect(gildedRose.items[1].quality).toEqual(50);
     });
 
-    xit("never allows item quality to go below 0", function() {
+    it("never allows item quality to go below 0", function() {
       for(var i = 0; i < 4; i++) {
         gildedRose.updateQuality();
       }
@@ -35,13 +35,13 @@ describe("Gilded Rose", function() {
     });
 
     describe("Standard Items", function() {
-      xit("alters the sellIn and quality values on a normal item after a day has passed", function() {
+      it("alters the sellIn and quality values on a normal item after a day has passed", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[0].sellIn).toEqual(9);
         expect(gildedRose.items[0].quality).toEqual(9);
       });
 
-      xit("doubles the reduction in quality value after sellIn has passed", function() {
+      it("doubles the reduction in quality value after sellIn has passed", function() {
         for(var i = 0; i < 6; i++) {
           gildedRose.updateQuality();
         }
