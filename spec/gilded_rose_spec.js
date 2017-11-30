@@ -67,13 +67,13 @@ describe("Gilded Rose", function() {
     });
 
     describe("Backstage Passes", function() {
-      xit("alters the sellIn and quality values of Backstage passes as expected when more than 10 days until sellIn", function() {
+      it("alters the sellIn and quality values of Backstage passes as expected when more than 10 days until sellIn", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[2].sellIn).toEqual(10);
         expect(gildedRose.items[2].quality).toEqual(21);
       });
 
-      xit("alters the sellIn and quality values of Backstage passes as expected when less than 10 days until sellIn", function() {
+      it("alters the sellIn and quality values of Backstage passes as expected when less than 10 days until sellIn", function() {
         for(var i = 0; i < 2; i++) {
           gildedRose.updateQuality();
         }
@@ -81,7 +81,7 @@ describe("Gilded Rose", function() {
         expect(gildedRose.items[2].quality).toEqual(23);
       });
 
-      xit("alters the sellIn and quality values of Backstage passes as expected when less than 5 days until sellIn", function() {
+      it("alters the sellIn and quality values of Backstage passes as expected when less than 5 days until sellIn", function() {
         for(var i = 0; i < 6; i++) {
           gildedRose.updateQuality();
         }
@@ -89,7 +89,7 @@ describe("Gilded Rose", function() {
         expect(gildedRose.items[2].quality).toEqual(31);
       });
 
-      xit("alters the sellIn and quality values of Backstage passes as expected when sellIn reaches 0", function() {
+      it("alters the sellIn and quality values of Backstage passes as expected when sellIn reaches 0", function() {
         for(var i = 0; i < 12; i++) {
           gildedRose.updateQuality();
         }
