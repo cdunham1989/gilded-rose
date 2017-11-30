@@ -115,7 +115,7 @@ describe("Gilded Rose", function() {
       });
 
       it("decreases the quality twice as fast as other items after sellIn has passed", function() {
-        for(var i = 0; i < 4; i++) {
+        for(var i = 0; i < 3; i++) {
           gildedRose.updateQuality();
         }
         expect(gildedRose.items[7].sellIn).toEqual(-1);
