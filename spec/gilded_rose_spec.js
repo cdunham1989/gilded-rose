@@ -8,7 +8,8 @@ describe("Gilded Rose", function() {
                             new Item("Sword", 9, 2),
                             new Item("Sulfuras, Hand of Ragnaros", 4, 80),
                             new Item("Shield", 2, 30),
-                            new Item("Aged Brie", 2, 10)]);
+                            new Item("Aged Brie", 2, 10),
+                            new Item("Conjured Mana Cakes", 2, 6)]);
   });
 
   describe("Creating Items", function() {
@@ -103,6 +104,14 @@ describe("Gilded Rose", function() {
         gildedRose.updateQuality();
         expect(gildedRose.items[4].sellIn).toEqual(4);
         expect(gildedRose.items[4].quality).toEqual(80);
+      });
+    });
+
+    describe("Conjured Items", function() {
+      it("decreases the quality twice as fast as other items", function() {
+        gildedRose.updateQuality();
+        expect(gildedRose.items[7].sellIn).toEqual(1);
+        expect(gildedRose.items[7].quality).toEqual(4);
       });
     });
   });

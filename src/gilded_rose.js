@@ -1,5 +1,3 @@
-// LEAVE ALONE
-
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
@@ -13,8 +11,6 @@ class Shop {
     this.items = items;
   }
 
-  // LEAVE ALONE
-
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].name == 'Aged Brie') {
@@ -23,6 +19,8 @@ class Shop {
         this.sulfurasHandler(this.items[i]);
       } else if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
         this.backstagePassHandler(this.items[i]);
+      } else if (this.items[i].name.toLowerCase().includes("conjured") ) {
+        this.conjuredItemHandler(this.items[i]);
       } else {
         this.standardItemHandler(this.items[i]);
       }
@@ -73,5 +71,17 @@ class Shop {
       item.quality -= 2;
       item.sellIn--;
     }
+  }
+
+conjuredItemHandler(item) {
+    if (item.sellIn > 0 && item.quality > 1) {
+      item.quality -= 2;
+      item.sellIn--;
+    } else if (item.sellIn > 0 && item.quality > 0) {
+      item.quality--;
+      item.sellIn--;
+    } else if (item.sellIn > 0 && item.quality == 0) {
+      item.sellIn--;
+    } 
   }
 }
